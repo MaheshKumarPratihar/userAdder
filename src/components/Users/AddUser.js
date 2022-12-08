@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import styled from "styled-components";
-// import Form from "react-bootstrap/Form";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import styles from "./AddUser.module.css";
 
@@ -44,7 +43,6 @@ const AddUser = (props) => {
       return;
     }
 
-    console.log({ name: enteredName, age: enteredAge });
     props.onAddUser(enteredName, enteredAge);
 
     setAdding(true);
@@ -63,6 +61,16 @@ const AddUser = (props) => {
   const errorHandler = () => {
     setError(null);
   };
+
+  // if (error) {
+  //   return (
+  //     <ErrorModal
+  //       onConfirm={errorHandler}
+  //       title={error.title}
+  //       message={error.message}
+  //     />
+  //   );
+  // }
 
   return (
     <div>
@@ -93,7 +101,7 @@ const AddUser = (props) => {
           ></input>
           <Button
             type="submit"
-            // disabled={isAdding}
+            disabled={isAdding}
             // onClick={!isAdding ? handleClick : null}
           >
             {isAdding ? "Adding..." : "Add User"}
